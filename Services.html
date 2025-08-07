@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore the integrated cybersecurity and web development services offered by TAC - Tactical Architecture & Control." />
+    <title>Services | TAC - Tactical Architecture & Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #002244;
+            --secondary: #0077cc;
+            --accent: #00a8e8;
+            --light: #f9f9f9;
+            --dark: #333;
+            --success: #28a745;
+            --gray: #6c757d;
+            --light-blue: #e0f7fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 20px 0 30px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .header-buttons {
+            margin-top: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #003366;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        section h2::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Services Overview */
+        #services-overview {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .services-overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        .services-overview-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Services Grid */
+        #services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .service-card ul li {
+            margin-bottom: 8px;
+            color: var(--dark);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-card ul li::before {
+            content: '\f058'; /* Checkmark icon */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--success);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: var(--light-blue);
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .copyright a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .copyright a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            #services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="TAC.html" class="logo">TAC<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="TAC.html">Home</a></li>
+                <li><a href="AboutUs.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <h1>Our Services</h1>
+            <p>Empowering your business with integrated web development and cybersecurity solutions.</p>
+            <div class="header-buttons">
+                <a href="contact.html" class="btn">Get a Free Consultation</a>
+                <a href="#services-grid" class="btn btn-outline">Explore Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services-overview">
+        <h2>What We Offer</h2>
+        <div class="services-overview-content">
+            <p>At TAC - Tactical Architecture & Control, we provide a comprehensive suite of services designed to address the intertwined needs of modern businesses: a strong online presence and robust cybersecurity. Our integrated approach ensures that your web infrastructure is not only functional and engaging but also secure and resilient against the evolving digital threat landscape.</p>
+            <p>We understand that every business is unique. That's why we tailor our services to meet your specific requirements, whether you're a startup looking to establish a secure online foundation or an established enterprise needing advanced threat protection and performance optimization. Explore our core service areas below to see how TAC can help protect and propel your business forward.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Core Services</h2>
+        <div id="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>Crafting dynamic, user-friendly, and high-performing websites tailored to your business objectives.</p>
+                <ul>
+                    <li>Responsive Website Design</li>
+                    <li>E-commerce Solutions</li>
+                    <li>Content Management Systems (CMS)</li>
+                    <li>Custom Web Applications</li>
+                    <li>Website Maintenance & Support</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Cybersecurity Solutions</h3>
+                <p>Protecting your digital assets and ensuring business continuity with proactive and comprehensive security measures.</p>
+                <ul>
+                    <li>Vulnerability Assessments & Penetration Testing</li>
+                    <li>Managed Security Services (MSSP)</li>
+                    <li>Data Protection & Privacy Compliance</li>
+                    <li>Incident Response & Recovery</li>
+                    <li>Security Awareness Training</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Infrastructure Management</h3>
+                <p>Designing, deploying, and managing secure and scalable cloud environments to optimize performance and efficiency.</p>
+                <ul>
+                    <li>Cloud Architecture & Consulting</li>
+                    <li>Cloud Migration Services</li>
+                    <li>Infrastructure as Code (IaC)</li>
+                    <li>Performance Monitoring & Optimization</li>
+                    <li>Cost Management</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Network Security</h3>
+                <p>Securing your network infrastructure to prevent unauthorized access and ensure seamless connectivity.</p>
+                <ul>
+                    <li>Firewall Management</li>
+                    <li>Intrusion Detection & Prevention Systems (IDPS)</li>
+                    <li>VPN & Secure Connectivity</li>
+                    <li>Network Segmentation</li>
+                    <li>Wireless Security</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Endpoint Security</h3>
+                <p>Protecting your devices and users from threats with advanced endpoint detection and response solutions.</p>
+                <ul>
+                    <li>Antivirus & Anti-Malware Solutions</li>
+                    <li>Endpoint Detection & Response (EDR)</li>
+                    <li>Mobile Device Management (MDM)</li>
+                    <li>Patch Management</li>
+                    <li>Data Loss Prevention (DLP)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Training & Workshops</h3>
+                <p>Empowering your team with the knowledge and skills to maintain a secure digital environment.</p>
+                <ul>
+                    <li>Cybersecurity Awareness Training for Employees</li>
+                    <li>Secure</li>
+                </ul>
+            </div>
+        </div>
+    </section>  
+</body>
+
+                    <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TAC</h3>
+        <p>Tactical Architecture & Control provides integrated cybersecurity and web development solutions for businesses of all sizes.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="AboutUs.html">About Us</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="TAC.html">Why Choose Us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+       <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Sandton, Gauteng, South Africa</li>
+          <li><i class="fas fa-phone"></i> +27 71 975 1571</li>
+          <li><i class="fas fa-envelope"></i> tac@cyberservices.com</li>
+          <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 TAC | Tactical Architecture & Control. All Rights Reserved.</p>
+      <p>
+        <a href="privacy policy.html">Privacy Policy</a> |
+        <a href="#">Terms & Conditions</a> |
+        <a href="#">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
+
+</html>

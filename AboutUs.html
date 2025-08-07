@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about TAC - Tactical Architecture & Control, providing integrated cybersecurity and web development solutions." />
+  <title>About TAC | Tactical Architecture & Control</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #002244;
+      --secondary: #0077cc;
+      --accent: #00a8e8;
+      --light: #f9f9f9;
+      --dark: #333;
+      --success: #28a745;
+      --gray: #6c757d;
+      --light-blue: #e0f7fa;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+    
+    /* Navigation */
+    nav {
+      background: var(--primary);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 20px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(to right, var(--primary), #003366);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+    
+    header h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    
+    header p {
+      margin: 20px 0 30px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .header-buttons {
+      margin-top: 20px;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 5px;
+      background: var(--secondary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--secondary);
+      color: white;
+    }
+    
+    .btn-outline:hover {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+      position: relative;
+    }
+    
+    section h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* About Section */
+    #about {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .about-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .about-highlight {
+      background: var(--light-blue);
+      border-left: 5px solid var(--secondary);
+      padding: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--primary);
+      border-radius: 0 5px 5px 0;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .about-card {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .about-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .about-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    
+    .about-card h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    /* Team Section */
+    #team {
+      background: var(--light);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .team-member {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+    }
+    
+    .team-image {
+      width: 100%;
+      height: 250px;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .team-image i {
+      font-size: 5rem;
+      color: #aaa;
+    }
+    
+    .team-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .team-info h3 {
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+    
+    .team-info p {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+    
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .team-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--light);
+      color: var(--secondary);
+      transition: all 0.3s ease;
+    }
+    
+    .team-social a:hover {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    /* Why Choose Us */
+    #why-tac {
+      background: white;
+      border-radius: 10px;
+      padding: 60px 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 20px;
+      background: var(--light);
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .why-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    
+    .why-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-right: 20px;
+      padding-top: 5px;
+    }
+    
+    .why-content h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    .why-content p {
+      color: var(--dark);
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--gray);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--light);
+      border: 4px solid var(--secondary);
+      border-radius: 50%;
+      top: 15px;
+      right: -14px;
+      z-index: 1;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(odd)::after {
+      right: -14px;
+    }
+    
+    .timeline-item:nth-child(even)::after {
+      left: -14px;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--light-blue), #bbdefb);
+      padding: 60px 30px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+    
+    .cta-banner h2 {
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .cta-banner p {
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-section a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    .copyright a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .copyright a:hover {
+      color: var(--accent);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--primary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 20px 0;
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        margin: 15px 0;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header h2 {
+        font-size: 1.4rem;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-item:nth-child(odd)::after,
+      .timeline-item:nth-child(even)::after {
+        left: 18px;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate {
+      animation: fadeIn 0.8s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="TAC.html" class="logo">TAC<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="TAC.html">Home</a></li>
+        
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h1>About TAC</h1>
+      <h2>Tactical Architecture & Control</h2>
+      <p>Learn more about our company, mission, and the team behind our success</p>
+      <div class="header-buttons">
+        <a href="services.html" class="btn">Our Services</a>
+        <a href="contact.html" class="btn btn-outline">Get a Free Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>Our Story</h2>
+    <div class="about-content">
+      <p>TAC operates at the intersection of web development, infrastructure management, and cybersecurity. In a digital landscape where threats are ever-evolving and performance is paramount, TAC provides a comprehensive suite of services designed to Protect and Propel Businesses forward.</p>
+      
+      <div class="about-highlight">
+        "Our unique blend of expertise allows us to build secure foundations from the ground up, ensuring that security is not an afterthought but an integral part of the digital architecture."
+      </div>
+      
+      <p>We understand the serious implications of cyber threats and the critical need for reliable web infrastructure, but we also believe in fostering a collaborative and engaging environment for our clients. Our approach combines technical excellence with clear communication and partnership.</p>
+      
+      <p>Founded in 2020, TAC has grown from a small team of dedicated professionals to a trusted partner for businesses across South Africa and beyond. Our commitment to excellence, innovation, and client success drives everything we do.</p>
+      
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To provide integrated web and security solutions that empower businesses to thrive in the digital economy without compromising on security or performance.</p>
+        </div>
+        
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be the leading provider of integrated web development and cybersecurity services in South Africa, known for excellence, innovation, and client satisfaction.</p>
+        </div>
+        
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Our Values</h3>
+          <p>Integrity, excellence, innovation, collaboration, and client-centricity guide our approach to every project and relationship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Timeline -->
+  <section id="timeline">
+    <h2>Our Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">2020</div>
+          <h3>Foundation</h3>
+          <p>TAC was founded with a vision to integrate web development and cybersecurity services.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">2021</div>
+          <h3>Expansion</h3>
+          <p>Expanded our team and service offerings to include cloud infrastructure management.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">2022</div>
+          <h3>First Major Clients</h3>
+          <p>Secured partnerships with several leading businesses in Gauteng.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">2023</div>
+          <h3>Security Certification</h3>
+          <p>Achieved industry-recognized security certifications and expanded our cybersecurity offerings.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">2024</div>
+          <h3>National Expansion</h3>
+          <p>Expanded operations to serve clients throughout South Africa.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-date">2025</div>
+          <h3>Innovation Hub</h3>
+          <p>Launched our innovation hub to develop cutting-edge solutions for emerging digital challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team">
+    <h2>Meet Our Leadership Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="team-info">
+          <h3>Calvin Ndava</h3>
+          <p>CEO & Founder</p>
+          <p>5+ years in information security and digital infrastructure</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="team-info">
+          <h3>De'vaughn Naidoo</h3>
+          <p>CTO</p>
+          <p>Expert in cloud architecture and secure infrastructure design</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="team-info">
+          <h3>David van der Merwe</h3>
+          <p>Head of Cybersecurity</p>
+          <p>Certified security professional with defensive and offensive expertise</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="team-info">
+          <h3>Thandi Khumalo</h3>
+          <p>Client Solutions Director</p>
+          <p>Bridging technical solutions with business objectives</p>
+          <div class="team-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-tac">
+    <h2>Why Choose TAC?</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">
+          <i class="fas fa-sync-alt"></i>
+        </div>
+        <div class="why-content">
+          <h3>Integrated Approach</h3>
+          <p>One-stop solution for web development and cybersecurity, ensuring all components work seamlessly together for maximum efficiency and security.</p>
+        </div>
+      </div>
+      
+      <div class="why-item">
+        <div class="why-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="why-content">
+          <h3>Proactive Security</h3>
+          <p>Building secure foundations from the ground up, preventing issues before they can arise and ensuring resilience against emerging threats.</p>
+        </div>
+      </div>
+      
+      <div class="why-item">
+        <div class="why-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="why-content">
+          <h3>Client-Centric</h3>
+          <p>We foster a collaborative and engaging environment, putting your business needs first and ensuring solutions align with your goals.</p>
+        </div>
+      </div>
+      
+      <div class="why-item">
+        <div class="why-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="why-content">
+          <h3>Expertise with a Refreshing Approach</h3>
+          <p>Our team combines deep technical knowledge with innovative thinking to solve complex challenges in straightforward ways.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <h2>Ready to get a free consultation?</h2>
+    <p>Contact us today and take the first step toward a secure and high-performing digital future for your business.</p>
+    <a href="contact.html" class="btn">Contact Us Now</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TAC</h3>
+        <p>Tactical Architecture & Control provides integrated cybersecurity and web development solutions for businesses of all sizes.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Sandton, Gauteng, South Africa</li>
+          <li><i class="fas fa-phone"></i> +27 71 975 1571</li>
+          <li><i class="fas fa-envelope"></i> tac@cyberservices.com</li>
+          <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 TAC | Tactical Architecture & Control. All Rights Reserved.</p>
+      <p>
+        <a href="privacy policy.html">Privacy Policy</a> |
+        <a href="#">Terms & Conditions</a> |
+        <a href="#">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+      
+      // Add scroll animations
+      const observerOptions = {
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('section, .team-member, .why-item, .timeline-item, .about-card').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
