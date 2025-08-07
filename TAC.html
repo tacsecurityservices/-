@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TAC - Tactical Architecture & Control provides integrated cybersecurity, web development and cloud services for businesses." />
+  <title>TAC | Tactical Architecture & Control - Cybersecurity & Web Development</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <style>
+
+
+#cookie-banner button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    margin: 5px;
+    cursor: pointer;
+   
+}
+#cookie-banner {
+    display: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    left: 300%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+}
+#cookie-banner button:hover {
+    background: #0056b3;
+    
+  
+}
+    :root {
+      --primary: #002244;
+      --secondary: #0077cc;
+      --accent: #00a8e8;
+      --light: #f9f9f9;
+      --dark: #333;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --gray: #6c757d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+    
+    /* Navigation */
+    nav {
+      background: var(--primary);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 20px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(to right, var(--primary), #003366);
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+    
+    header h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    
+    header p {
+      margin: 20px 0 30px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 5px;
+      background: var(--secondary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+      position: relative;
+    }
+    
+    section h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* About Section */
+    #about {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    #about p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+    
+    .about-buttons {
+      text-align: center;
+    }
+    
+    /* Services */
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1 1 250px;
+      max-width: 350px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .service-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    
+    .service-card h3 {
+      margin: 15px 0;
+      color: var(--primary);
+    }
+    
+    /* Why Choose Us */
+    #why-tac {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 60px 30px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .feature-icon {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-right: 15px;
+      padding-top: 5px;
+    }
+    
+    .feature-content h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, #e0f7fa, #bbdefb);
+      padding: 60px 30px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 40px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    
+    .cta-banner h2 {
+      margin-bottom: 20px;
+    }
+    
+    .cta-banner p {
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Contact Form */
+    #contact {
+      background: white;
+      border-radius: 10px;
+      padding: 60px 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      flex: 1 1 300px;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .contact-item {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+    
+    .contact-form {
+      flex: 1 1 500px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: var(--secondary);
+      outline: none;
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    
+    .footer-section ul {
+      list-style: none;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-section a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      color: white;
+      background: rgba(255,255,255,0.1);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--primary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 20px 0;
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        margin: 15px 0;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="TAC.html" class="logo">TAC<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="AboutUs.html">About</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="#why-tac">Why TAC</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+   
+    <div class="header-content">
+      <h1>TAC</h1>
+      <h2>Tactical Architecture & Control</h2>
+      <p>Protecting and Propelling Businesses Forward Through Advanced Cybersecurity and Web Solutions</p>
+      <div>
+        <a href="#services" class="btn">Explore Our Services</a>
+        <a href="#contact" class="btn btn-outline">Get a Free Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About TAC</h2>
+    <p>
+      At TAC, we blend web development, infrastructure management, and cybersecurity into a seamless offering. Our "security by design" approach ensures your digital presence is secure from the ground up, creating robust solutions that protect your business while enabling growth.
+    </p>
+    <div class="about-buttons">
+      <a href="AboutUs.html" class="btn btn-outline">Learn More About Us</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Cybersecurity Services</h3>
+        <p>Comprehensive protection for your business with managed security, compliance, and disaster recovery services.</p>
+        <a href="Services.html" class="btn btn-outline">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Web Development</h3>
+        <p>Build scalable and secure web applications with expert frontend, backend, and DevOps support.</p>
+        <a href="Services.html" class="btn btn-outline">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3>Cloud Services</h3>
+        <p>Secure cloud hosting, migration, and integration with major providers like AWS, Azure, and Google Cloud.</p>
+        <a href="Services.html" class="btn btn-outline">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Maintenance & Support</h3>
+        <p>Ensure uptime and reliability with 24/7 monitoring and proactive care for your digital infrastructure.</p>
+        <a href="Services.html" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-tac">
+    <h2>Why Choose TAC?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-sync-alt"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Integrated Approach</h3>
+          <p>One-stop solution for web development and cybersecurity, ensuring all components work seamlessly together.</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Proactive Security</h3>
+          <p>Building secure foundations from the ground up, preventing issues before they can arise.</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Client-Centric</h3>
+          <p>We foster a collaborative and engaging environment, putting your business needs first.</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="feature-content">
+          <h3>Innovative Solutions</h3>
+          <p>Combining technical expertise with a refreshing approach to solve your business challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <h2>Ready to Secure and Grow Your Business?</h2>
+    <p>Take the first step toward a secure and scalable digital future. Our team of experts is ready to help you navigate the complex world of cybersecurity and web development.</p>
+    <a href="Contact.html" class="btn">Get Your Free Consultation</a>
+  </div>
+
+  <!-- Contact Form -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div>
+            <p>Sandton Business District</p>
+            <p>Gauteng, South Africa</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div>
+            <p>+27 71 975 1571</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+             <p><a href="mailto:tac@cyberservices.com">tac@cyberservices.com</a></p>
+            </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturday: 9:00 AM - 1:00 PM</p>
+          </div>
+        </div>
+      </div>
+      
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TAC</h3>
+        <p>Tactical Architecture & Control provides integrated cybersecurity and web development solutions for businesses of all sizes.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="AboutUs.html">About Us</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="TAC.html">Why Choose Us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="Services.html">Cybersecurity</a></li>
+          <li><a href="Services.html">Web Development</a></li>
+          <li><a href="Services.html">Cloud Services</a></li>
+          <li><a href="Services.html">Maintenance & Support</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 TAC | Tactical Architecture & Control. All Rights Reserved.</p>
+      <p>
+        <a href="privacy policy.html">Privacy Policy</a> |
+        <a href="#">Terms & Conditions</a> |
+        <a href="#">Cookie Policy</a>
+      </p>
+    </div>
+
+  </footer>
+
+  <script>
+    // Simple JavaScript for the mobile navigation toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+      
+      // Form submission handling
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Thank you for your message! We will get back to you soon.');
+          contactForm.reset();
+        });
+      }
+      
+      // Add scroll animations
+      const observerOptions = {
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('section, .service-card, .feature-item').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    if (!getCookie("TACCookieConsent")) {
+        document.getElementById("cookie-banner").style.display = "block";
+    }
+});
+
+function acceptCookies() {
+    setCookie("TACCookieConsent", "accepted", 365);
+    document.getElementById("cookie-banner").style.display = "none";
+}
+
+function declineCookies() {
+    setCookie("TACCookieConsent", "declined", 365);
+    document.getElementById("cookie-banner").style.display = "none";
+}
+
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + "; path=/" + expires;
+}
+
+function getCookie(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+  </script>
+</body>
+</html>
