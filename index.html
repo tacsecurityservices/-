@@ -748,7 +748,8 @@
         </div>
       </div>
       <div class="contact-form">
-        <form id="contactForm">
+        <!-- Replaced form with a div and button to enable mailto functionality -->
+        <div>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" class="form-control" required>
@@ -761,8 +762,8 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" class="form-control" required></textarea>
           </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
+          <button id="sendEmailBtn" class="btn">Send Message</button>
+        </div>
       </div>
     </div>
   </section>
@@ -856,15 +857,45 @@
         });
       });
 
-      // Form submission handling with custom modal
-      const contactForm = document.getElementById('contactForm');
-      const messageModal = document.getElementById('message-modal');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          messageModal.style.display = 'block';
-          contactForm.reset();
+      // Handle 'Send Message' button click to open mail client
+      const sendEmailBtn = document.getElementById('sendEmailBtn');
+      if (sendEmailBtn) {
+        sendEmailBtn.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent default button behavior
+
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const message = document.getElementById('message').value;
+
+          // Check if all fields are filled
+          if (name && email && message) {
+            // Encode the values for the URL
+            const subject = encodeURIComponent(`Inquiry from ${name} via Website`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+            // Construct the mailto link
+            const mailtoLink = `mailto:tac@cyberservices.com?subject=${subject}&body=${body}`;
+
+            // Open the user's email client
+            window.location.href = mailtoLink;
+
+            // Show a success message modal
+            showMessageModal('Thank You!', 'Your message is ready to send. Please click "send" in your email client.', 'OK');
+
+          } else {
+            // Show an error modal if fields are empty
+            showMessageModal('Error', 'Please fill in all the required fields.', 'OK');
+          }
         });
+      }
+
+      // Reusable function to show a custom modal
+      function showMessageModal(title, text, buttonText) {
+        const modal = document.getElementById('message-modal');
+        modal.querySelector('h3').textContent = title;
+        modal.querySelector('p').textContent = text;
+        modal.querySelector('.btn').textContent = buttonText;
+        modal.style.display = 'block';
       }
 
       // Add scroll animations
@@ -927,7 +958,3 @@
 </body>
 
 </html>
-
-
-
-
